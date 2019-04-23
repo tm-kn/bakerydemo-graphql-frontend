@@ -72,7 +72,7 @@ export const query = graphql`
             seoTitle
             seoDescription
 
-            children {
+            children(order:"title") {
               title
               id
               url

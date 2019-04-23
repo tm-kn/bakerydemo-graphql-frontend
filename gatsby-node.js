@@ -14,7 +14,8 @@ const PAGE_TYPES = {
   'base.GalleryPage': path.resolve('src', 'pages', 'gallery-page.js'),
   'base.StandardPage': path.resolve('src', 'pages', 'standard-page.js'),
   'locations.LocationsIndexPage': path.resolve('src', 'pages', 'location-index-page.js'),
-  'blog.BlogPage': path.resolve('src', 'pages', 'blog-page.js')
+  'blog.BlogPage': path.resolve('src', 'pages', 'blog-page.js'),
+  'blog.BlogIndexPage': path.resolve('src', 'pages', 'blog-index-page.js')
 };
 
 function getComponentPathForType (pageType) {
