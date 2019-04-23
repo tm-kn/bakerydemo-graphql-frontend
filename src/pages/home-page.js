@@ -9,29 +9,8 @@ import RichText from '../components/rich-text';
 const HomePage = ({ data }) => {
   const page = data.wagtail.pages.base.homePage[0];
 
-  const renderPageList = (pages, title) => {
-    if (!pages || pages.length === 0) {
-      return;
-    }
-
-    let titleHeading;
-
-    if (title) {
-      titleHeading = <h2>{title}</h2>;
-    }
-
-    return <>
-      {titleHeading}
-      <ul>
-        {pages.map(page => <li key={page.id}>
-          <Link to={page.url}>{page.title}</Link>
-        </li>)}
-      </ul>
-    </>;
-  };
-
   const heroContainerStyle = {
-    color: 'white',
+    color: 'white'
   };
   const heroImage = page.image && page.image.rendition.url;
   const promoImage = page.promoImage && page.promoImage.rendition;
@@ -68,13 +47,13 @@ const HomePage = ({ data }) => {
                   const image = v.specific.image && v.specific.image.rendition;
                   let imageElement;
                   if (image) {
-                        imageElement = (
-                          <Link to={v.url}>
-                            <figure>
-                              <img src={image.url} alt={image.alt} />
-                            </figure>
-                          </Link>
-                        );
+                    imageElement = (
+                      <Link to={v.url}>
+                        <figure>
+                          <img src={image.url} alt={image.alt} />
+                        </figure>
+                      </Link>
+                    );
                   }
 
                   return <li key={v.id}>
@@ -104,13 +83,13 @@ const HomePage = ({ data }) => {
                   const image = v.specific.image && v.specific.image.rendition;
                   let imageElement;
                   if (image) {
-                        imageElement = (
-                          <Link to={v.url}>
-                            <figure>
-                              <img src={image.url} alt={image.alt} />
-                            </figure>
-                          </Link>
-                        );
+                    imageElement = (
+                      <Link to={v.url}>
+                        <figure>
+                          <img src={image.url} alt={image.alt} />
+                        </figure>
+                      </Link>
+                    );
                   }
 
                   return <li key={v.id}>
@@ -141,13 +120,13 @@ const HomePage = ({ data }) => {
                   const image = v.specific.image && v.specific.image.rendition;
                   let imageElement;
                   if (image) {
-                        imageElement = (
-                          <Link to={v.url}>
-                            <figure>
-                              <img src={image.url} alt={image.alt} />
-                            </figure>
-                          </Link>
-                        );
+                    imageElement = (
+                      <Link to={v.url}>
+                        <figure>
+                          <img src={image.url} alt={image.alt} />
+                        </figure>
+                      </Link>
+                    );
                   }
 
                   return <li key={v.id}>

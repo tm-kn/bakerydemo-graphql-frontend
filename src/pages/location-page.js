@@ -17,9 +17,8 @@ const LocationPage = ({ data }) => {
         <h1>{page.title}</h1>
         {image && <img src={image.url} alt={image.alt} />}
       </div>
-      {page.isOpen ?
-        <p>This location is currently open</p> :
-        <p>Sorry, this location is currently closed</p>
+      {page.isOpen ? <p>This location is currently open</p>
+        : <p>Sorry, this location is currently closed</p>
       }
       <div>
         <p>{page.introduction}</p>
@@ -36,11 +35,9 @@ const LocationPage = ({ data }) => {
               <time itemProp="openingHours" dateTime={v.title}>
                 <span className="day">{v.day}</span>:
                 <span className="hours">
-                  {v.closed ?
-                    "Closed" : (
-                      `${v.openingTime} - ${v.closingTime}`
-                    )
-                  }
+                  {v.closed ? 'Closed' : (
+                    `${v.openingTime} - ${v.closingTime}`
+                  )}
                 </span>
               </time>
             </div>
