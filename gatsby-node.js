@@ -7,7 +7,8 @@
 const path = require('path');
 
 const PAGE_TYPES = {
-  'base.HomePage': path.resolve('src', 'pages', 'home-page.js')
+  'base.HomePage': path.resolve('src', 'pages', 'home-page.js'),
+  'breads.BreadPage': path.resolve('src', 'pages', 'bread-page.js')
 };
 
 function getComponentPathForType (pageType) {

@@ -30,7 +30,9 @@ const HomePage = ({ data }) => {
     </>;
   };
 
-  const heroContainerStyle = {};
+  const heroContainerStyle = {
+    color: 'white',
+  };
   const heroImage = page.image && page.image.rendition.url;
   const promoImage = page.promoImage && page.promoImage.rendition;
   if (heroImage) {
@@ -42,8 +44,9 @@ const HomePage = ({ data }) => {
     <div style={heroContainerStyle}>
       <h1>{page.title}</h1>
       <p>{page.heroText}</p>
-      <Link to={page.heroCtaLink.url}>{page.heroCta}</Link>
+      <Link style={{ color: 'white' }} to={page.heroCtaLink.url}>{page.heroCta}</Link>
     </div>
+    <br />
     <div className="container">
       <div className="row promo-row">
         <div className="col-sm-5 promo">
