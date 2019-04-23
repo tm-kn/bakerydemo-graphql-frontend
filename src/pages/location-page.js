@@ -17,9 +17,6 @@ const LocationPage = ({ data }) => {
         <h1>{page.title}</h1>
         {image && <img src={image.url} alt={image.alt} />}
       </div>
-      {page.isOpen ? <p>This location is currently open</p>
-        : <p>Sorry, this location is currently closed</p>
-      }
       <div>
         <p>{page.introduction}</p>
       </div>
@@ -70,7 +67,6 @@ export const query = graphql`
               openingTime
               closingTime
             }
-            isOpen
             latLong
             address
             id

@@ -5,8 +5,8 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const BreadIndexPage = ({ data }) => {
-  const page = data.wagtail.pages.breads.breadsIndexPage[0];
+const LocationIndexPage = ({ data }) => {
+  const page = data.wagtail.pages.locations.locationsIndexPage[0];
 
   const renderPageList = (pages, title) => {
     if (!pages || pages.length === 0) {
@@ -23,9 +23,8 @@ const BreadIndexPage = ({ data }) => {
       {titleHeading}
       <table>
         <thead>
-          <th colSpan={2}>Bread</th>
-          <th>Type</th>
-          <th>Origin</th>
+          <th colSpan={2}>Location</th>
+          <th>Address</th>
         </thead>
         <tbody>
           {pages.map(page => {
@@ -40,8 +39,7 @@ const BreadIndexPage = ({ data }) => {
                   )}
                 </td>
                 <td><Link to={page.url}>{page.title}</Link></td>
-                <td>{page.specific.breadType.title}</td>
-                <td>{page.specific.origin.title}</td>
+                <td>{page.specific.address}</td>
               </tr>
             );
           })}
@@ -53,11 +51,12 @@ const BreadIndexPage = ({ data }) => {
   return <Layout>
     <SEO title={page.seoTitle} description={page.seoDescription} />
     <h1>{page.title}</h1>
+    {page.introduction && <p>{page.introduction}</p>}
     {renderPageList(page.children)}
   </Layout>;
 };
 
-BreadIndexPage.propTypes = {
+LocationIndexPage.propTypes = {
   data: PropTypes.object.isRequired
 };
 
@@ -65,8 +64,8 @@ export const query = graphql`
   query($pageID: ID) {
     wagtail {
       pages {
-        breads {
-          breadsIndexPage(id: $pageID) {
+        locations {
+          locationsIndexPage (id: $pageID) {
             id
             title
             introduction
@@ -78,13 +77,8 @@ export const query = graphql`
               id
               url
               specific {
-                ... on WAGTAIL_BreadsBreadPageObjectType {
-                  origin {
-                    title
-                  }
-                  breadType {
-                    title
-                  }
+                ... on WAGTAIL_LocationsLocationPageObjectType {
+                  address
                   image {
                     rendition(filter:"fill-100x100-c100") {
                       alt
@@ -101,4 +95,4 @@ export const query = graphql`
   }
 `;
 
-export default BreadIndexPage;
+export default LocationIndexPage;
