@@ -5,6 +5,7 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import RichText from '../components/rich-text';
+import StreamField from '../components/stream-field';
 
 const HomePage = ({ data }) => {
   const page = data.wagtail.pages.base.homePage[0];
@@ -72,7 +73,7 @@ const HomePage = ({ data }) => {
           }
         </div>
 
-        {page.body && <div>{JSON.stringify(page.body)}</div>}
+        <StreamField value={page.body} />
 
         <div className="col-sm-6 col-sm-offset-1 feature-1">
           {page.featuredSection2 &&

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import StreamField from '../components/stream-field';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -23,7 +24,7 @@ const BlogPage = ({ data }) => {
         <p>{v.firstName} {v.lastName}</p>
       </li>)}
     </ul>
-    {page.body && <div>{JSON.stringify(page.body)}</div>}
+    <StreamField value={page.body} />
     <h2>Tagged with</h2>
     <ul>
       {page.tags.map(v => <li key={v}>{v}</li>)}

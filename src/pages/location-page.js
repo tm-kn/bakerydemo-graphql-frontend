@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import StreamField from '../components/stream-field';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -42,9 +43,7 @@ const LocationPage = ({ data }) => {
         })}
       </div>
       <br />
-      <div>
-        {page.body && JSON.stringify(page.body)}
-      </div>
+      <StreamField value={page.body} />
     </div>
   </Layout>;
 };

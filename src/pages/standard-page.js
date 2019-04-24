@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
+import StreamField from '../components/stream-field';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -14,7 +15,7 @@ const StandardPage = ({ data }) => {
     <SEO title={page.seoTitle} description={page.seoDescription} />
     {heroImage && <img src={heroImage.url} alt={heroImage.alt} />}
     <h1>{page.title}</h1>
-    {page.body && JSON.stringify(page.body)}
+    <StreamField value={page.body} />
   </Layout>;
 };
 
