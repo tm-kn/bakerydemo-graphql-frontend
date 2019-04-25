@@ -30,6 +30,9 @@ const BreadIndexPage = ({ data }) => {
         <tbody>
           {pages.map(page => {
             const image = page.specific.image && page.specific.image.rendition;
+            const breadType = page.specific.breadType
+              ? page.specific.breadType.title : '';
+            const origin = page.specific.origin ? page.specific.origin.title : '';
             return (
               <tr key={page.id}>
                 <td>
@@ -40,8 +43,8 @@ const BreadIndexPage = ({ data }) => {
                   )}
                 </td>
                 <td><Link to={page.url}>{page.title}</Link></td>
-                <td>{page.specific.breadType.title}</td>
-                <td>{page.specific.origin.title}</td>
+                <td>{breadType}</td>
+                <td>{origin}</td>
               </tr>
             );
           })}
