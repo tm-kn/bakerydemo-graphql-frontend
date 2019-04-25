@@ -34,7 +34,7 @@ const BlogIndexPage = ({ data }) => {
               )}
               <Link to={page.url}>{page.title}</Link>
               <p>
-                {dateDisplay} by {page.specific.authors
+                {dateDisplay} {page.specific.authors && 'by ' + page.specific.authors
                               .map(v => `${v.firstName} ${v.lastName}`)
                               .join(',')}
               </p>
